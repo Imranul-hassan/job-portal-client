@@ -1,24 +1,14 @@
 import Lottie from "lottie-react";
-import lottieData from '../assets/lottie/Animation - 1734020113400.json'
-import { useContext } from "react";
-import AuthContext from "../context/AuthContext";
+import lottieData from "../assets/lottie/Animation - 1734020113400.json"
 
-const Register = () => {
-    const { createUser } = useContext(AuthContext)
-    const handleRegister = e => {
+const SignIn = () => {
+    const handleSignIn = (e)=>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
 
-        createUser(email, password)
-            .then(result => {
-                console.log(result);
-            })
-            .catch(err => {
-                console.log(err)
-            })
 
     }
     return (
@@ -28,8 +18,8 @@ const Register = () => {
                     <Lottie animationData={lottieData}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <h1 className="text-4xl font-bold text-center">Register now!</h1>
-                    <form onSubmit={handleRegister} className="card-body">
+                    <h1 className="text-4xl font-bold text-center">Sign In</h1>
+                    <form onSubmit={handleSignIn} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -55,4 +45,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default SignIn;
